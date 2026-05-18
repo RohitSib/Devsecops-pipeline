@@ -1,0 +1,73 @@
+pipeline {
+    agent any
+
+    triggers {
+        pollSCM('H/2 * * * *')
+    }
+
+    stages {
+
+        stage('Build') {
+            steps {
+                echo 'Stage: Build'
+                echo 'Tool: Maven'
+                echo 'Task: Compiling source code and packaging the application into a deployable artifact with Maven.'
+            }
+        }
+
+
+        stage('Unit and Integration Tests') {
+            steps {
+                echo 'Stage: Unit and Integration Tests'
+                echo 'Tools: JUnit, Selenium'
+                echo 'Task: Running unit tests with JUnit to validate individual components, and integration tests with Selenium to verify  modules .'
+            }
+        }
+
+
+        stage('Code Analysis') {
+            steps {
+                echo 'Stage: Code Analysis'
+                echo 'Tool: SonarQube'
+                echo 'Task: Analysing the codebase with SonarQube to detect code smells, bugs, and  issues, ensuring the codestandards.'
+            }
+        }
+
+
+        stage('Security Scan') {
+            steps {
+                echo 'Stage: Security Scan'
+                echo 'Tool: OWASP Dependency-Check'
+                echo 'Task: Scanning project dependencies with OWASP Dependency Check to identify CVEs and  vulnerabilities before deployment.'
+            }
+        }
+
+
+        stage('Deploy to Staging') {
+            steps {
+                echo 'Stage: Deploy to Staging'
+                echo 'Tool: AWS CLI'
+                echo 'Task: Deploying application to an AWS EC2 staging instance using the AWS CLI, making it available for testing.'
+            }
+        }
+
+
+        stage('Integration Tests on Staging') {
+            steps {
+                echo 'Stage: Integration Tests on Staging'
+                echo 'Tool: Postman'
+                echo 'Task: Running API integration tests via Newman  against the staging environment to confirm the application behaves correctly.'
+            }
+        }
+
+
+        stage('Deploy to Production') {
+            steps {
+                echo 'Stage: Deploy to Production'
+                echo 'Tool: AWS CLI'
+                echo 'Task: Promoting the artifact to the live AWS EC2 instance, completing the CI/CD pipeline.'
+            }
+        }
+
+    }
+}
