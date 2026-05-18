@@ -20,7 +20,7 @@ pipeline {
             steps {
                 echo 'Stage: Unit and Integration Tests'
                 echo 'Tools: JUnit, Selenium'
-                echo 'Task: Running unit tests with JUnit to validate individual components, and integration tests with Selenium to verify  modules .'
+                echo 'Task: Running unit tests with JUnit for individual components, and integration tests with Selenium to verify  modules .'
             }
         }
 
@@ -29,7 +29,7 @@ pipeline {
             steps {
                 echo 'Stage: Code Analysis'
                 echo 'Tool: SonarQube'
-                echo 'Task: Analysing the codebase with SonarQube to detect code smells, bugs, and  issues, ensuring the codestandards.'
+                echo 'Task: Analysing the codebase with SonarQube to detect code smells, bugs and issues to ensure the codestandards.'
             }
         }
 
@@ -37,7 +37,7 @@ pipeline {
         stage('Security Scan') {
             steps {
                 echo 'Stage: Security Scan'
-                echo 'Tool: OWASP Dependency-Check'
+                echo 'Tool: OWASP Dependency Check'
                 echo 'Task: Scanning project dependencies with OWASP Dependency Check to identify CVEs and  vulnerabilities before deployment.'
             }
         }
@@ -56,7 +56,7 @@ pipeline {
             steps {
                 echo 'Stage: Integration Tests on Staging'
                 echo 'Tool: Postman'
-                echo 'Task: Running API integration tests via Newman  against the staging environment to confirm the application behaves correctly.'
+                echo 'Task: Running API integration tests via Newman against the staging environment to confirm the application behaves correctly.'
             }
         }
 
