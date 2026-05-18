@@ -60,7 +60,7 @@ pipeline {
             steps {
                 echo 'Stage: Deploy to Production'
                 echo 'Tool: AWS CLI'
-                echo 'Task: Promoting the artifact to the live AWS EC2 instance, completing the CI/CD pipeline in production.'
+                echo 'Task: Promoting the artifact to the live AWS EC2 instance, completing the CI/CD pipeline.'
             }
         }
 
